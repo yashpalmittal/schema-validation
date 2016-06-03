@@ -1,0 +1,71 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/documentAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["Document"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/documentValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/documentValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"documentValue": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploaded": {
+					"type": "string"
+				},
+				"validUntil": {
+					"type": "string",
+					"format": "date"
+				},
+				"isVerified": {
+					"type": "boolean"
+				},
+				"confidence": {
+					"type": "number"
+				},
+				"acquisitionChannel": {
+					"type": "string"
+				},
+				"has": {
+					"type": "boolean"
+				}
+			},
+			"required": ["id", "name", "uploaded", "validUntil", "isVerified", "confidence", "acquisitionChannel", "has"]
+		}
+	}
+}

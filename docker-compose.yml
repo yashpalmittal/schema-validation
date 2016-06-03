@@ -1,0 +1,12 @@
+node_example:
+  image: node
+  command:  bash -c "npm install && node_modules/nodemon/bin/nodemon.js bin/www"
+  working_dir: /app
+  container_name: node_example
+  expose: 
+  - "7000"
+  ports:
+   - "7000:7000"
+   - "5858:5858"
+  volumes :
+  - ./:/app

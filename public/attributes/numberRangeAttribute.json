@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/numberRangeAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["NumberRange"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/numberRangeValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberRangeValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"numberRangeValue": {
+			"type": "object",
+			"properties": {
+				"min": {
+					"type": "number"
+				},
+				"max": {
+					"type": "number"
+				}
+			},
+			"required": ["min", "max"]
+		}
+	}
+}

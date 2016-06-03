@@ -1,0 +1,64 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/assetAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["Asset"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/assetValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/assetValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"assetValue": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"isVerified": {
+					"type": "boolean"
+				},
+				"confidence": {
+					"type": "number"
+				},
+				"acquisitionChannel": {
+					"type": "string"
+				},
+				"has": {
+					"type": "boolean"
+				}
+			},
+			"required": ["id", "name", "isVerified", "confidence", "acquisitionChannel", "has"]
+		}
+	}
+}

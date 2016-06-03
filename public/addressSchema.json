@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id":"http://localhost:7000/addressSchema.json",
+  "definitions": {
+    "address": {
+      "id":"#address",
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "street",
+        "city"
+      ]
+    }
+  }
+}

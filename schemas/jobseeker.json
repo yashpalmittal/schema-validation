@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id":"http://localhost:7000/userSchema.json",
+  "title": "JobSeeker",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name":{
+    	"type":"string"
+    },
+    "profile":{
+      "$ref":"addressSchema.json#/definitions/address"
+    }
+  },
+  "required":["id","name","address"]
+}

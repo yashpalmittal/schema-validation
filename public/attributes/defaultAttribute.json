@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/defaultAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["Default"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/defaultValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/defaultValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"defaultValue": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			},
+			"required": ["id", "value"]
+		}
+	}
+}

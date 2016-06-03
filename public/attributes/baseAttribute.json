@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/baseAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"attributeId" : {
+			"type": "number"
+		},
+		"attributeName": {
+			"type": "string"
+		}
+	},
+
+	"required": ["attributeId", "attributeName"]
+}

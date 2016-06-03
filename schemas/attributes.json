@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Attributes",
+  "description": "A Category in Babajob",
+  "type": "object",
+  "properties": {
+    "categoryId": {
+      "type": "integer"
+    },
+    "attributes": {
+      "description": "List of attributes",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/defaultattribute"
+          },
+          {
+            "$ref": "#/definitions/numberRangeAttribute"
+          },
+          {
+            "$ref": "#/definitions/stringAttribute"
+          },
+          {
+            "$ref": "#/definitions/dateAttribute"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "categoryId"
+  ],
+  "definitions": {
+ 
+    "baseattribute": {
+      "properties": {
+        "attributeId": {
+          "type": "integer"
+        },
+        "attributeName": {
+          "type": "string"
+        },
+        "classification": {
+          "$ref": "#/definitions/classification"
+        },
+        "attributeType": {
+          "$ref": "#/definitions/attributeType"
+        }
+      }
+    },
+    "defaultattribute": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseattribute"
+        },
+        {
+          "properties": {
+            "dataType": {
+              "type": "string",
+              "enum": [
+                "default"
+              ]
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/default"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "numberRangeAttribute": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseattribute"
+        },
+        {
+          "properties": {
+            "dataType": {
+              "type": "string",
+              "enum": [
+                "numberRange"
+              ]
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/numberRange"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "stringAttribute": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseattribute"
+        },
+        {
+          "properties": {
+            "dataType": {
+              "type": "string",
+              "enum": [
+                "string"
+              ]
+            },
+            "options": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "dateAttribute": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseattribute"
+        },
+        {
+          "properties": {
+            "dataType": {
+              "type": "string",
+              "enum": [
+                "date"
+              ]
+            },
+            "options": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

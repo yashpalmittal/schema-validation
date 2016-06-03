@@ -1,0 +1,78 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/experienceAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["Experience"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/experienceValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/experienceValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"experienceValue": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"companyName": {
+					"type": "string"
+				},
+				"numberOfYears": {
+					"type": "number"
+				},
+				"description": {
+					"type": "string"
+				},
+				"designation": {
+					"type": "string"
+				},
+				"startDate": {
+					"type": "string",
+					"format": "date"
+				},
+				"endDate": {
+					"type": "string",
+					"format": "date"
+				},
+				"contactNumber": {
+					"type": "string"
+				},
+				"current": {
+					"type": "boolean"
+				},
+				"salary": {
+					"type": "number"
+				}
+			},
+			"required": ["id", "companyName", "description", "salary"]
+		}
+	}
+}

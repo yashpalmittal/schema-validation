@@ -1,0 +1,132 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/addressAttribute.json#",
+
+
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"enum": ["Address"]
+		}
+	},
+	"required": ["attributeType", "dataType", "value"],
+	"oneOf": [
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["SingleValue"]
+				},
+				"value": {
+					"$ref": "#/definitions/addressValue"
+				}
+			}
+		},
+		{
+			"properties": {
+				"attributeType" : {
+					"enum": ["MultiValue"]
+				},
+				"value": {
+					"type": "array",
+					"items": {"$ref": "#/definitions/addressValue"},
+					"minItems": 1
+				}
+			}
+		}
+	],
+
+	"definitions": {
+		"addressValue": {
+			"type": "object",
+			"properties": {
+				"addressId": {
+					"type": "string"
+				},
+				"addressType": {
+					"type": "string"
+				},
+				"premise": {
+					"type": "string"
+				},
+				"route": {
+					"type": "string"
+				},
+				"landmark": {
+					"type": "string"
+				},
+				"sublocality_level_1": {
+					"type": "string"
+				},
+				"sublocality_level_2": {
+					"type": "string"
+				},
+				"sublocality_level_3": {
+					"type": "string"
+				},
+				"locality": {
+					"type": "string"
+				},
+				"administrative_area_level_1": {
+					"type": "string"
+				},
+				"administrative_area_level_2": {
+					"type": "string"
+				},
+				"country": {
+					"type": "string"
+				},
+				"postal_code": {
+					"type": "string"
+				},
+				"formatted_address": {
+					"type": "string"
+				},
+				"radius": {
+					"type": "number"
+				},
+				"confidence": {
+					"type": "number"
+				},
+				"commuteTime": {
+					"type": "number"
+				},
+				"isVerified": {
+					"type": "boolean"
+				},
+				"location": {
+					"$ref": "#/definitions/location"
+				}
+			},
+			"required": ["addressId", "addressType", "locality", "country", "postal_code", "formatted_address", "isVerified", "location"]
+		},
+		"location": {
+			"properties": {
+				"latitude": {
+					"type": "number"
+				},
+				"longitude": {
+					"type": "number"
+				},
+				"altitude": {
+					"type": "string"
+				},
+				"horizontalAccuracy": {
+					"type": "string"
+				},
+				"verticalAccuracy": {
+					"type": "string"
+				},
+				"speed": {
+					"type": "string"
+				},
+				"course": {
+					"type": "string"
+				},
+				"isUnknown": {
+					"type": "boolean"
+				}
+			},
+			"required": ["latitude", "longitude", "isUnknown"]
+		}
+	}
+}

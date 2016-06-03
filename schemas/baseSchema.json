@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Attributes",
+  "description": "A Category in Babajob",
+  "type": "object",
+  "classification": {
+    "enum": [
+      "Profile",
+      "Skills",
+      "Documents"
+    ]
+  },
+  "dataType": {
+    "enum": [
+      "numeric",
+      "default",
+      "experience",
+      "documents"
+    ]
+  },
+  "attributeType": {
+    "enum": [
+      "SingleValue",
+      "MultiValue"
+    ]
+  },
+  "default": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "value": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "value"
+    ]
+  },
+  "numberRange": {
+    "type": "object",
+    "properties": {
+      "min": {
+        "type": "integer"
+      },
+      "max": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "min",
+      "max"
+    ]
+  }
+}

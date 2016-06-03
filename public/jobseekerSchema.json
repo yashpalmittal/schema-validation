@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/jobSeeker.json#",
+
+	"type": "object",
+	"properties": {
+		"jobSeekerId" : {
+			"type": "number"
+		},
+		"name": {
+			"type": "string"
+		},
+		"profile": {
+			"$ref": "attributes/attributes.json#"
+		}
+	},
+
+	"required": ["jobSeekerId", "name", "profile"]
+}

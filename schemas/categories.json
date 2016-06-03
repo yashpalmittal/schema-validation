@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Categories",
+    "description": "A Category in Babajob",
+    "type": "object",
+     
+    "properties": {
+    	"categories":{
+    		"description":"List of categories",
+    		"type":"array",
+    		"items":{
+    			"$ref":"#/definitions/category"
+    		}
+		}
+	},
+	"definitions":{
+    	"category":{
+    		"type":"object",
+    		"properties":{
+    			"id":{"type":"integer"},
+    			"name":{"type":"string"}
+    		}
+    	}
+    }
+
+}
