@@ -1,0 +1,60 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/jobPostSchema.json#",
+
+	"type": "object",
+	"properties": {
+		"jobPostId" : {
+			"type": "number"
+		},
+		"employerId": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"createdOn": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"validUntil": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"status": {
+			"type": "string"    // should probably be enum
+		},
+		"jobCategory": {
+								// separate schema
+		},
+		"plan": {
+								// separate schema
+		},
+		"jobRequirements": {
+			"$ref": "attributes/attributes.json#"
+		},
+		"address": {
+								// separate schema or an attribute??
+		},
+		"salary": {
+								// separate schema or an attribute??
+		},
+		"totalNumberOfOpenings": {
+			"type": "number"
+		},
+		"totalAllowedUnlocks": {
+			"type": "number"
+		},
+		"hasActiveCampaigns": {
+			"type": "boolean"
+		},
+		"createdById": {
+			"type": "string"
+		}
+	},
+
+	"required": ["jobPostId", "employerId", "jobRequirements"]
+}

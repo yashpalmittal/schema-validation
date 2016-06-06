@@ -4,19 +4,6 @@
 
 	"type": "array",
 	"items": {
-		"$ref": "baseAttribute.json#",
-		"oneOf": [
-			{"$ref": "defaultAttribute.json#"},
-			{"$ref": "documentAttribute.json#"},
-			{"$ref": "dateRangeAttribute.json#"},
-			{"$ref": "numberRangeAttribute.json#"},
-			{"$ref": "numberAttribute.json#"},
-			{"$ref": "stringAttribute.json"},
-			{"$ref": "assetAttribute.json"},
-			{"$ref": "addressAttribute.json"},
-			{"$ref": "languageAttribute.json"},
-			{"$ref": "skillAttribute.json"},
-			{"$ref": "experienceAttribute.json"}
-		]
+		"$ref": "attribute.json#"
 	}
 }

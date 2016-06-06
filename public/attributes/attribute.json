@@ -1,0 +1,20 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/attributes/attribute.json#",
+
+	"type": "object",
+	"$ref": "baseAttribute.json#",
+	"oneOf": [
+		{"$ref": "defaultAttribute.json#"},
+		{"$ref": "documentAttribute.json#"},
+		{"$ref": "dateRangeAttribute.json#"},
+		{"$ref": "numberRangeAttribute.json#"},
+		{"$ref": "numberAttribute.json#"},
+		{"$ref": "stringAttribute.json"},
+		{"$ref": "assetAttribute.json"},
+		{"$ref": "addressAttribute.json"},
+		{"$ref": "languageAttribute.json"},
+		{"$ref": "skillAttribute.json"},
+		{"$ref": "experienceAttribute.json"}
+	]
+}

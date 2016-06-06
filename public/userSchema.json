@@ -1,0 +1,62 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://localhost:7000/userSchema.json#",
+
+	"type": "object",
+	"properties": {
+		"userID" : {
+			"type": "number"
+		},
+		"role": {
+			"type": "number"
+		},
+		"password": {
+			"type": "string"
+		},
+		"name": {
+			"$ref": "#/definitions/name"
+		},
+		"dateOfBirth": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"contactDetails": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/contact"
+			}
+		}
+	},
+
+	"required": ["userID", "password", "name", "dateOfBirth", "contactDetails"],
+
+	"definitions": {
+		"contact": {
+			"type": "object",
+			"properties": {
+				"contactType": {
+					"type": "number"
+				},
+				"value": {
+					"type": "string"
+				},
+				"isVerified": {
+					"type": "boolean"
+				}
+			},
+			"required": ["contactType", "value", "isVerified"]
+		},
+		"name": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string"
+				},
+				"lastName": {
+					"type": "string"
+				}
+			},
+			"required": ["firstName", "lastName"]
+		}
+	}
+}

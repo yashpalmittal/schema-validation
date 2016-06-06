@@ -1,19 +1,40 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"id": "http://localhost:7000/jobSeeker.json#",
+	"id": "http://localhost:7000/jobSeekerSchema.json#",
 
 	"type": "object",
 	"properties": {
 		"jobSeekerId" : {
-			"type": "number"
-		},
-		"name": {
 			"type": "string"
 		},
 		"profile": {
 			"$ref": "attributes/attributes.json#"
+		},
+		"jobPreferences": {
+			"$ref": "attributes/attributes.json#"
+		},
+		"skills": {
+			"$ref": "attributes/attributes.json#"
+		},
+		"documents": {
+			"$ref": "attributes/attributes.json#"
+		},
+		"experience": {
+			"allOf": [
+				{ "$ref": "attributes/attribute.json#" },
+				{
+					"properties": {
+						"dataType": {
+							"enum": ["Experience"]
+						}
+					}
+				}
+			]
+		},
+		"user": {
+			"$ref": "userSchema.json#"
 		}
 	},
 
-	"required": ["jobSeekerId", "name", "profile"]
+	"required": ["jobSeekerId", "profile", "jobPreferences", "skills", "documents", "experience", "user"]
 }
