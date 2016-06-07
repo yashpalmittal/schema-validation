@@ -11,7 +11,7 @@ var ajv = Ajv({
 }); 
 
 function loadSchema(uri,callback){
-	request.get(uri, function(err, res, body) {
+	request.get("http://localhost:7000/"+uri, function(err, res, body) {
 		if (err || res.statusCode >= 400)
 			callback(err || new Error('Loading error: ' + res.statusCode));
 		else

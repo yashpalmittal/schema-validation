@@ -1,20 +1,19 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"id": "http://localhost:7000/attributes/attribute.json#",
 
 	"type": "object",
-	"$ref": "baseAttribute.json#",
+	"$ref": "attributes/baseAttribute.json#",
 	"oneOf": [
-		{"$ref": "defaultAttribute.json#"},
-		{"$ref": "documentAttribute.json#"},
-		{"$ref": "dateRangeAttribute.json#"},
-		{"$ref": "numberRangeAttribute.json#"},
-		{"$ref": "numberAttribute.json#"},
-		{"$ref": "stringAttribute.json"},
-		{"$ref": "assetAttribute.json"},
-		{"$ref": "addressAttribute.json"},
-		{"$ref": "languageAttribute.json"},
-		{"$ref": "skillAttribute.json"},
-		{"$ref": "experienceAttribute.json"}
+		{"$ref": "attributes/defaultAttribute.json#"},
+		{"$ref": "attributes/documentAttribute.json#"},
+		{"$ref": "attributes/dateRangeAttribute.json#"},
+		{"$ref": "attributes/numberRangeAttribute.json#"},
+		{"$ref": "attributes/numberAttribute.json#"},
+		{"$ref": "attributes/stringAttribute.json"},
+		{"$ref": "attributes/assetAttribute.json"},
+		{"$ref": "attributes/addressAttribute.json"},
+		{"$ref": "attributes/languageAttribute.json"},
+		{"$ref": "attributes/skillAttribute.json"},
+		{"$ref": "attributes/experienceAttribute.json"}
 	]
 }
